@@ -104,6 +104,19 @@ $ cat config.js
 exports.githubAuth.webhookSecret = 'rsvz9ytsjMpYfKW8CO8SQPSoxiJsVb03';
 ```
 
+## Linux / Ubuntu
+
+1. The binary is called 'nodejs' on linux but both npm and the bot expect that
+   'node [FILE]' invokes node. Create a symbolic link at /usr/local/bin/node to
+   /usr/bin/nodejs
+1. If you are prompted for a github username/password upon launching main.js and
+   you cloned the repo onto the server from github using https://, then remove
+   the existing repo and
+  * cd ~/.ssh && ssh-keygen
+  * add the public key to your github account (View Profile > Edit Profile > SSH
+    keys)
+  * git clone ssh://git@github.com/canterbot/canterbot.git
+
 ## License
 
 **Autonomous Software License (ASL)**
