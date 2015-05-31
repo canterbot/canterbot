@@ -3,7 +3,7 @@
 
     module.exports = {
         user: "YOUR_GITHUB_USERNAME",
-        repo: "botwillacceptanything",
+        repo: "canterbot",
         githubAuth: {
             type: "oauth",
             token: "YOUR_OAUTH_TOKEN"
