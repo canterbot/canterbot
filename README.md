@@ -48,8 +48,8 @@ A bot will automatically merge any PR on this repo that gets enough votes from t
 
 ## Community
 
-Hang out with us in IRC: [**#canterbot** on Freenode.](http://kiwiirc.com/client/irc.freenode.net/canterbot)  
-The bot is [**@canterbot** on Twitter.](https://twitter.com/canterbot/)  
+Hang out with us in IRC: [**#canterbot** on Freenode.](http://kiwiirc.com/client/irc.freenode.net/canterbot)
+The bot is [**@canterbot** on Twitter.](https://twitter.com/canterbot/)
 
 ## Running Servers
 
