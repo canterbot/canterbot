@@ -1,8 +1,40 @@
-# Bot will accept anything
+# Canterbot: a special version of github for the anythingbot
+
+## Direction
+
+As of 5/30/2015, the anythingbot is dependent on github.com for:
+
+1. interface to propose PRs
+1. http endpoints for listing proposed PRs and (per PR) view description and add comments, view commits, and view files changed
+1. interface to add issue
+1. http endpoints for listing issues and (per issue) add comments
+1. maintaining the master repo
+
+However, github.com does not make its own source code available for public
+inspection or modification. This means the anythingbot is currently tied down to a
+fixed set of functions designed to serve a generic project. In particular, there
+is no video feed scheduling tool, so a change to the video feed must be by:
+
+ - github PR
+ - github issue (not implemented)
+ - any web visitor to botwillacceptanything.com (not implemented)
+ - authenticated web visitor to botwillacceptanything.com (not implemented)
+
+The last option would require the anythingbot to gain SSL/HTTPS, compromising its
+current cryptography-free status. Therefore, the canterbot project exists to:
+
+ - supplement and eventually replace the anythingbot's relationship with github
+ - isolate cryptography (SSL/HTTPS) from the anythingbot
+
+The current tasks for canterbot include
+
+1. add SSL/HTTPS
+1. connect with github (https://developer.github.com/v3/oauth/ and https://github.com/settings/applications/new)
+1. add video/track scheduling web interface
 
 ## Status
 
-[![Build Status](https://travis-ci.org/botwillacceptanything/botwillacceptanything.svg?branch=master)](https://travis-ci.org/botwillacceptanything/botwillacceptanything)
+[![Build Status](https://travis-ci.org/canterbot/canterbot.svg?branch=master)](https://travis-ci.org/canterbot/canterbot)
 
 ### *The project where anything goes, as long as the code allows it.*
 
@@ -10,25 +42,25 @@ A bot will automatically merge any PR on this repo that gets enough votes from t
 
 ## Getting Started
 
-* View the [open Pull Requests](https://github.com/botwillacceptanything/botwillacceptanything/pulls) to see what changes have been proposed
+* View the [open Pull Requests](https://github.com/canterbot/canterbot/pulls) to see what changes have been proposed
 * :star: **Star the repo**, or else your votes won't get counted
 * On a pull request thread, add your vote along with a short explanation and/or feedback to the author. The string `:+1:` (:+1:) anywhere within the comment makes the comment count as a vote *for* the PR to pass; conversely, the string `:-1:` (:-1:) anywhere within the comment makes the comment count as a vote *against* the PR.
 
 ## Community
 
-Hang out with us in IRC: [**#botwillacceptanything** on Freenode.](http://kiwiirc.com/client/irc.freenode.net/botwillacceptanything)  
-The bot is [**@anythingbot** on Twitter.](https://twitter.com/anythingbot/)  
+Hang out with us in IRC: [**#canterbot** on Freenode.](http://kiwiirc.com/client/irc.freenode.net/canterbot)
+The bot is [**@canterbot** on Twitter.](https://twitter.com/canterbot/)
 
 ## Running Servers
 
-The bot runs on a 1GB DigitalOcean VPS in SF at [botwillacceptanything.com](http://botwillacceptanything.com:3000) without root access. This means that port 80 is restricted.
+The bot runs on a ... at [canterbot.org](http://canterbot.org:3000) without root access. This means that port 80 is restricted.
 
 ## Bot Webserver Paths
 
 The bot has a built-in webserver for monitoring its current state.
 
-* [Recent Commits](http://botwillacceptanything.com:3000)
-* [Stdout Log](http://botwillacceptanything.com:3000/stdout)
+* [Recent Commits](http://canterbot.org:3000)
+* [Stdout Log](http://canterbot.org:3000/stdout)
 
 ## Running the bot locally to test changes
 
@@ -45,7 +77,7 @@ $ cat config.js
 
     module.exports = {
         user: "YOUR_GITHUB_USERNAME",
-        repo: "botwillacceptanything",
+        repo: "canterbot",
         githubAuth: {
             type: "oauth",
             token: "YOUR_OAUTH_TOKEN"
