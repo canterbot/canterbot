@@ -31,12 +31,14 @@ voting.on('merge', function(pullreq) {
 
 // `git sync`
 function sync(cb) {
+  console.log('TRACE: [file=main.js] sync');
   var repo = git(__dirname);
   repo.sync(cb);
 }
 
 // gets the hash of the HEAD commit
 function head(cb) {
+  console.log('TRACE: [file=main.js] head');
   var repo = git(__dirname);
   repo.branch(function(err, head) {
     if(err) return cb(err);
@@ -46,7 +48,8 @@ function head(cb) {
 
 // starts ourself up in a new process, and kills the current one
 function restart() {
-  var child = spawn('node', [__dirname + "/launcher.js"], {
+  console.log('TRACE: [file=main.js] restart');
+  var child = spawn('nodejs', [__dirname + "/launcher.js"], {
     detached: true,
     stdio: 'inherit'
   });
@@ -57,10 +60,12 @@ function restart() {
 }
 
 function considerExistence() {
+  console.log('TRACE: [file=main.js] considerExistence');
   return undefined;
 }
 
 function main() {
+  console.log('TRACE: [file=main.js] main');
   // find the hash of the current HEAD
   console.log('find the hash of the current HEAD');
   head(function(err, initial) {
