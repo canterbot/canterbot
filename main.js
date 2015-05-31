@@ -61,23 +61,27 @@ function considerExistence() {
 
 function main() {
   // find the hash of the current HEAD
+  console.log('find the hash of the current HEAD');
   head(function(err, initial) {
     if(err) return console.error('error checking HEAD:', err);
 
     // make sure we are in sync with the remote repo
+    console.log('make sure we are in sync with the remote repo');
     sync(function(err) {
       if(err) return console.error('error pulling from origin/master:', err);
 
       head(function(err, current) {
         if(err) return console.error('error checking HEAD:', err);
 
-        // if we just got a new version, upgrade npm packages and restart.
+        // if we just got a new version, upgrade npm packages and restart
+        console.log('if we just got a new version, upgrade npm packages and restart');
         if(initial !== current) return restart();
 
         console.log('Bot is initialized. HEAD:', current);
         considerExistence();
 
-        // Allow the voting system to bootstrap and begin monitoring PRs.
+        // allow the voting system to bootstrap and begin monitoring pull requests
+        console.log('allow the voting system to bootstrap and begin monitoring pull requests');
         voting.initialize();
       });
     });
