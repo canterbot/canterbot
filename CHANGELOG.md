@@ -7,4 +7,3 @@ This is changelog.
 - Added Badges
 - Added TravisCI Integration
 - Added CHANGELOG.md
-- Test
